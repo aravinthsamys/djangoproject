@@ -1,0 +1,32 @@
+ 
+ {% extends 'master.html' %}
+
+
+{% block title %}
+update
+    {% endblock %}
+
+
+{% block body %}
+ 
+  <!-- form format in django  -->
+  <div>
+<center>
+  <br> <br>
+  <h1> <a class="btn btn-success me-5" href="{% url 'result' %}">   Back</a>update form</h1> <br>
+    <form action="{% url 'update' data.id %}" method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+      <input type="text" name="name" placeholder="name" value="{{ data.name }}"> <br> <br>
+      <input type="text" name="desc"  placeholder="Description" value="{{ data.desc }}"><br> <br>
+      current image : <br> <br>
+      <img width="60px" height="60px" src="{{ data.img.url }}" alt=""> <br> <br>
+      <input type="file" name="img"> <br> <br>
+      <button type="submit">update</button>
+ <br> <br>
+      
+    </form>
+</center>
+  </div>
+
+
+  {% endblock %}

@@ -1,0 +1,47 @@
+ 
+ {% extends 'master.html' %}
+
+
+{% block title %}
+result
+    {% endblock %}
+
+
+{% block body %}
+ 
+ <style>
+        table,th,tr,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 600px;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+
+ 
+<table class="mb-5">
+
+    <tr>
+        <th>S.no</th>
+        <th>name</th>
+        <th> description</th>
+        <th>image</th>
+        <th>delete</th>
+        <th>update</th>
+    </tr>
+    {% for i in data %}
+   <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.name }}</td>
+    <td> {{ i.desc }}</td>
+    <td> <img width="60px" height="60px" src="{{ i.img.url }}" alt="">  </td>
+    <td> <a class="btn btn-danger" href="{% url 'delete' i.id  %}">delete</a> </td>
+    <td> <a class="btn btn-info" href="{% url 'update' i.id  %}">Update</a> </td>
+   </tr>
+    {% endfor %}
+<hr>
+</table>
+  {% endblock %}

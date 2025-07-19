@@ -1,0 +1,26 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block body %}
+  <!-- form format in django  -->
+  <div>
+<center>
+  <br> <br> <br>
+    <form action="{% url 'result' %}" method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+      <input type="text" name="name" placeholder="name"> <br> <br>
+      <input type="text" name="desc"  placeholder="Description"><br> <br>
+      <input type="file" name="img"> <br> <br>
+      <button type="submit">submit</button>
+
+     
+    </form>
+</center>
+  </div>
+
+  {% endblock %}

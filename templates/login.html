@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+login
+{% endblock %}
+
+
+{% block body %}
+<style>
+   .reg{
+      width: 400px;
+   }
+   label{
+      display: none;
+   }
+   input{
+      margin-top: 30px;
+   }
+</style>
+<center>
+   <div class="mt-5 reg">
+      <h2 class="mb-5">login Form</h2>
+ <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+    <button class="btn btn-success" type="submit">login</button>
+ </form>
+</div>
+</center>
+
+{% endblock %}
